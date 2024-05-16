@@ -6,10 +6,12 @@ This project is a project with two script. The first one generates an RSA key pa
 
 ## Badges
 
-Add badges from somewhere like: [shields.io](https://shields.io/)
+<div align="center">
 
 [![](https://img.shields.io/badge/Python-red)]()
 [![](https://img.shields.io/badge/Sympy-green)]()
+
+</div>
 
 
 ## Run Locally
