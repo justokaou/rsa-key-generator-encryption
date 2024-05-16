@@ -1,4 +1,6 @@
 import random
+import os
+import argparse
 import sympy
 
 def generate_prime(bits):
@@ -64,25 +66,23 @@ def int_to_string(i):
     return bytes_array.decode('utf-8', 'ignore')
 
 def save_keys(public_key, private_key):
-    with open('public_key.txt', 'w') as f:
+    os.makedirs('./rsa_keys', exist_ok=True)
+
+    with open('./rsa_keys/public_key', 'w') as f:
         f.write(f"{public_key[0]},{public_key[1]}")  # e,n
-    with open('private_key.txt', 'w') as f:
+    with open('./rsa_keys/private_key', 'w') as f:
         f.write(f"{private_key[0]},{private_key[1]}")  # d,n
 
+    print("keys successfully registered")
+
 # Example usage
-bits = 4096
+parser = argparse.ArgumentParser(description="RSA key generation")
+parser.add_argument('-b', '--bits', type=int, default=2048, help="Number of bits for RSA key generation (512, 1024, 2048, 4096)")
+parser.add_argument('-o', '--ouput', required=True, default='./rsa_keys', help="Path to directory for generated key (public_key and private_key)")
+args = parser.parse_args()
+bits = args.bits
 public_key, private_key = generate_rsa_key_pair(bits)
-print("Public Key (e, n):", public_key)
-print("Private Key (d, n):", private_key)
-
-# Encrypt an integer
-message = ""
-encrypted_message = encrypt(message, public_key)
-print("Encrypted message:", encrypted_message)
-
-# Decrypt
-decrypted_message = decrypt(encrypted_message, private_key)
-print("Decrypted message:", decrypted_message)
+#print("Public Key (e, n):", public_key)
+#print("Private Key (d, n):", private_key)
 
 save_keys(public_key, private_key)
-
