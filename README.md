@@ -1,10 +1,6 @@
-
 # Python RSA generator and encryption
 
 This project is a project with two script. The first one generates an RSA key pair, and the second allows for encrypting and decrypting a file.
-
-
-## Badges
 
 <div align="center">
 
