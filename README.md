@@ -61,6 +61,9 @@ Decrypt file
   python encrypt-file.py --mode decrypt --keys ./rsa_keys --input ./input_files/encrypted_files/test.txt --output ./output_files/decrypted_files/test.txt
 ```
 
+## 🛡️ License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
 ## Authors
 
